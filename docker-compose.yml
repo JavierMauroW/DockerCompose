@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: contetienda
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: "tienda"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+    ports:
+      - "33007:3306"
+    volumes:
+      - "C:/Users/puchi/Desktop/Prueba/mysql_data:/var/lib/mysql"
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
